@@ -111,9 +111,17 @@ public class EvaluationServiceTest {
 	 * Question 5
 	 ******************************************************************/
 	
-//	public void testBarkingDog1() {
-//		assertEquals(true, evaluationService.shouldWakeUp(true, 1));
-//	}
+	public void testTeenNumberChecker1() {
+		assertEquals(true, EvaluationService.TeenNumberChecker.hasTeen(9, 99, 19));
+	}
+	
+	public void testTeenNumberChecker2() {
+		assertEquals(true, EvaluationService.TeenNumberChecker.hasTeen(23, 15, 42));
+	}
+	
+	public void testTeenNumberChecker3() {
+		assertEquals(false, EvaluationService.TeenNumberChecker.hasTeen(22, 34, 44));
+	}
 	
 	/*******************************************************************
 	 * Question 1
