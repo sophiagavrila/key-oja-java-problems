@@ -19,8 +19,11 @@ public class EvaluationService {
 	 *@param double
 	 *@return
 	 */
-	public int toMilesPerHour(double kilometersPerHour) {
-		return 0;
+	public long toMilesPerHour(double kilometersPerHour) {
+		if (kilometersPerHour < 0) {
+            return -1;
+        }
+        return Math.round(kilometersPerHour / 1.609);
 	}
 	
 	/**
@@ -40,7 +43,14 @@ public class EvaluationService {
 	 */
 	
 	public String printConversion(double kilometersPerHour) {
-		return null;
+        if (kilometersPerHour < 0) {
+            return("Invalid Value");
+        } else {
+            long milesPerHour = toMilesPerHour(kilometersPerHour);
+            return (kilometersPerHour +
+                    " km/h = " + milesPerHour +
+                    " mi/h");
+        }
 	}
 	
 	/**
