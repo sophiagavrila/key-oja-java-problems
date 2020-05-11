@@ -27,21 +27,28 @@ public class EvaluationServiceTest {
 	public ExpectedException expectedException = ExpectedException.none();
 
 	/*******************************************************************
-	 * Question 1)
+	 * Question 1.A
 	 ******************************************************************/
 	@Test
 	public void testSpeedConverter1() {
-		assertEquals(1, EvaluationService.SpeedConverter.toMilesPerHour(1.5));
+		assertEquals(1, evaluationService.toMilesPerHour(1.5));
 	}
 	
 	@Test
 	public void testSpeedConverter2() {
-		assertEquals(6, EvaluationService.SpeedConverter.toMilesPerHour(10.25));
+		assertEquals(6, evaluationService.toMilesPerHour(10.25));
 	}
 	
 	@Test
 	public void testSpeedConverterInvalid() {
-		assertEquals(-1, EvaluationService.SpeedConverter.toMilesPerHour(-5.6));
+		assertEquals(-1, evaluationService.toMilesPerHour(-5.6));
+	}
+	
+	/*******************************************************************
+	 * Question 1.B
+	 ******************************************************************/
+	public void testPrintConversion() {
+		assertEquals(" ", evaluationService.printConversion(-5.6));
 	}
 	
 
@@ -543,38 +550,6 @@ public class EvaluationServiceTest {
 		assertFalse(evaluationService.isPangram("five boxing wizards jump quickly at it"));
 	}
 
-	/*******************************************************************
-	 * Question 17
-	 ******************************************************************/
-	@Test
-	public void modernTime() {
-		assertEquals(LocalDateTime.of(2043, Month.JANUARY, 1, 1, 46, 40),
-				evaluationService.getGigasecondDate(LocalDate.of(2011, Month.APRIL, 25)));
-	}
-
-	@Test
-	public void afterEpochTime() {
-		assertEquals(LocalDateTime.of(2009, Month.FEBRUARY, 19, 1, 46, 40),
-				evaluationService.getGigasecondDate(LocalDate.of(1977, Month.JUNE, 13)));
-	}
-
-	@Test
-	public void beforeEpochTime() {
-		assertEquals(LocalDateTime.of(1991, Month.MARCH, 27, 1, 46, 40),
-				evaluationService.getGigasecondDate(LocalDate.of(1959, Month.JULY, 19)));
-	}
-
-	@Test
-	public void withFullTimeSpecified() {
-		assertEquals(LocalDateTime.of(2046, Month.OCTOBER, 2, 23, 46, 40),
-				evaluationService.getGigasecondDate(LocalDateTime.of(2015, Month.JANUARY, 24, 22, 0, 0)));
-	}
-
-	@Test
-	public void withFullTimeSpecifiedAndDayRollover() {
-		assertEquals(LocalDateTime.of(2046, Month.OCTOBER, 3, 1, 46, 39),
-				evaluationService.getGigasecondDate(LocalDateTime.of(2015, Month.JANUARY, 24, 23, 59, 59)));
-	}
 
 	/*******************************************************************
 	 * Question 18

@@ -20,12 +20,45 @@ public class EvaluationService {
 	 *@param double
 	 *@return
 	 */
-	static class SpeedConverter {
-		
+	public int toMilesPerHour(double kilometersPerHour) {
+		return 0;
 	}
 	
+	/**
+	 * 1.B) Write another method called printConversion with 1 parameter of type double with 
+	 * the name kilometersPerHour.  This method needs to return a String and needs to calulate
+	 * milesPerHour from the kilometersPerHour parameter.
+	 * 
+	 * The String should print in the format: "XX km/h = YY mi/h" 
+	 * 
+	 * XX represents the original value kilometersPerHour.
+	 * YY represents the rounded milesPerHour from the kilometersPerHour parameter.
+	 * 
+	 * If the parameter kilometersPerHour is < 0, then print the text "Invalid Value"
+	 *
+	 *@param double
+	 *@return
+	 */
 	
+	public String printConversion(double kilometersPerHour) {
+		return null;
+	}
 	
+	/**
+	 * 2. 	
+	 */
+	
+	public static void printMegaBytesAndKiloBytes(int XX) {
+	        
+	    if (XX < 0) {
+	        System.out.println("Invalid Value");
+	    } else {
+	        int YY = XX / 1024;
+	        int ZZ = XX % 1024;
+	        System.out.println(XX + " KB = " + YY + " MB and " + ZZ + " KB");
+	    }
+	 }
+
 	/**
 	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
@@ -35,7 +68,7 @@ public class EvaluationService {
 	 */
 	public String reverse(String string) {
 		
-		return "";
+		return null;
 	}
 
 	/**
@@ -395,19 +428,6 @@ public class EvaluationService {
 	public boolean isPangram(String string) {
 		// TODO Write an implementation for this method declaration
 		return false;
-	}
-
-	/**
-	 * 17. Calculate the moment when someone has lived for 10^9 seconds.
-	 * 
-	 * A gigasecond is 109 (1,000,000,000) seconds.
-	 * 
-	 * @param given
-	 * @return
-	 */
-	public Temporal getGigasecondDate(Temporal given) {
-		// TODO Write an implementation for this method declaration
-		return null;
 	}
 
 	/**
