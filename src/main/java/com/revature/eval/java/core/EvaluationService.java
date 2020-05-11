@@ -6,7 +6,9 @@ import java.util.Map;
 public class EvaluationService {
 	
 	/**
-	 * 1.A) Write a method called toMilesPerHour that has 1 parameter of type double with 
+	 * 1.A Speed Converter - Convert to MilesPerHour
+	 * 
+	 * Write a method called toMilesPerHour that has 1 parameter of type double with 
 	 * the name kilometersPerHour.  This method needs to return the rounded value of the
 	 * calculation of type long.
 	 * 
@@ -16,7 +18,7 @@ public class EvaluationService {
 	 * Otherwise if it is positive, calculate the value of miles per hour, round it and
 	 * return it.  For conversion and rounding use Math.round().
 	 *
-	 *@param double
+	 *@param kilometersPerHour
 	 *@return
 	 */
 	static class SpeedConverter {
@@ -28,7 +30,9 @@ public class EvaluationService {
 	        return Math.round(kilometersPerHour / 1.609);
 		}
 		/**
-		 * 1.B) Write another method called printConversion with 1 parameter of type double with 
+		 * 1.B Speed Converter - Print Conversion 
+		 * 
+		 * Write another method called printConversion with 1 parameter of type double with 
 		 * the name kilometersPerHour.  This method needs to return a String and needs to calculate
 		 * milesPerHour from the kilometersPerHour parameter.
 		 * 
@@ -39,7 +43,7 @@ public class EvaluationService {
 		 * 
 		 * If the parameter kilometersPerHour is < 0, then print the text "Invalid Value"
 		 *
-		 *@param double
+		 *@param kilometersPerHour
 		 *@return
 		 */
 		public static String printConversion(double kilometersPerHour) {
@@ -55,6 +59,8 @@ public class EvaluationService {
 	}
 	
 	/**
+	 * 2. MegaBytes and KiloBytes
+	 * 
 	 * Write a method called printMegaBytesAndKiloBytes that has 1 parameter of type int with the name kiloBytes.
 	 * 
 	 * The method should return a String and it needs to calculate the megabytes and remaining kilobytes 
@@ -70,7 +76,7 @@ public class EvaluationService {
 	 * 
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid Value".
 	 * 
-	 * @param int
+	 * @param XX
 	 * @return
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
@@ -103,7 +109,8 @@ public class EvaluationService {
 	 * 
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 * 
-	 * @param boolean, int
+	 * @param isBarking
+	 * @param hourOfDay
 	 * @return
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
@@ -116,7 +123,30 @@ public class EvaluationService {
             return false;
         }
     }
-
+	
+	/**
+	 * 4. DecimalComparator
+	 * 
+	 * Write a method areEqualByThreeDecimalPlaces with two parameters of type double.
+	 * 
+	 * The method should return boolean and it needs to return true if two double
+	 * numbers are the same up to three decimal places.
+	 * 
+	 * Otherwise, return false;
+	 * 
+	 * @param firstNum
+	 * @param secondNum
+	 * @return
+	 */
+	
+	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
+        if ((int)(firstNum * 1000) == (int)(secondNum * 1000)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+	
 	/**
 	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"

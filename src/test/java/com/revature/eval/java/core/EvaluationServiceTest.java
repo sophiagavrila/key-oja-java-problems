@@ -92,6 +92,30 @@ public class EvaluationServiceTest {
 	}
 	
 	/*******************************************************************
+	 * Question 4
+	 ******************************************************************/
+	
+	public void testDecimalComparator1() {
+		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(-3.1756, -3.175));
+	}
+	
+	public void testDecimalComparator2() {
+		assertEquals(false, evaluationService.areEqualByThreeDecimalPlaces(3.175, 3.176));
+	}
+	
+	public void testDecimalComparator3() {
+		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(3.0, 3.0));
+	}
+	
+	/*******************************************************************
+	 * Question 5
+	 ******************************************************************/
+	
+//	public void testBarkingDog1() {
+//		assertEquals(true, evaluationService.shouldWakeUp(true, 1));
+//	}
+	
+	/*******************************************************************
 	 * Question 1
 	 ******************************************************************/
 	@Test
