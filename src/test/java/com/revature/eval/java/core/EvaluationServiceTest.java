@@ -75,6 +75,21 @@ public class EvaluationServiceTest {
 		assertEquals("Invalid Value", evaluationService.printMegaBytesAndKiloBytes(-1024));
 	}
 	
+	/*******************************************************************
+	 * Question 3
+	 ******************************************************************/
+	
+	public void testBarkingDog1() {
+		assertEquals(true, evaluationService.shouldWakeUp(true, 1));
+	}
+	
+	public void testBarkingDog2() {
+		assertEquals(false, evaluationService.shouldWakeUp(false, 2));
+	}
+	
+	public void testBarkingDogInvalid() {
+		assertEquals(false, evaluationService.shouldWakeUp(true, -1));
+	}
 	
 	/*******************************************************************
 	 * Question 1
