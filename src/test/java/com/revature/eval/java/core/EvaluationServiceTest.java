@@ -47,8 +47,16 @@ public class EvaluationServiceTest {
 	/*******************************************************************
 	 * Question 1.B
 	 ******************************************************************/
-	public void testPrintConversion() {
-		assertEquals(" ", evaluationService.printConversion(-5.6));
+	public void testPrintConversion1() {
+		assertEquals("1.5 km/h = 1 mi/h", evaluationService.printConversion(1.5));
+	}
+	
+	public void testPrintConversion2() {
+		assertEquals("10.25 km/h = 6 mi/h", evaluationService.printConversion(10.25));
+	}
+	
+	public void testPrintConversionInvalid() {
+		assertEquals("Invalid Value", evaluationService.printConversion(-5.6));
 	}
 	
 
