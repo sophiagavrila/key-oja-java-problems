@@ -31,35 +31,41 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 	@Test
 	public void testSpeedConverter1() {
-		assertEquals(1, evaluationService.toMilesPerHour(1.5));
+		assertEquals(1, EvaluationService.SpeedConverter.toMilesPerHour(1.5));
 	}
 	
 	@Test
 	public void testSpeedConverter2() {
-		assertEquals(6, evaluationService.toMilesPerHour(10.25));
+		assertEquals(6, EvaluationService.SpeedConverter.toMilesPerHour(10.25));
 	}
 	
 	@Test
 	public void testSpeedConverterInvalid() {
-		assertEquals(-1, evaluationService.toMilesPerHour(-5.6));
+		assertEquals(-1, EvaluationService.SpeedConverter.toMilesPerHour(-5.6));
 	}
 	
 	/*******************************************************************
 	 * Question 1.B
 	 ******************************************************************/
 	public void testPrintConversion1() {
-		assertEquals("1.5 km/h = 1 mi/h", evaluationService.printConversion(1.5));
+		assertEquals("1.5 km/h = 1 mi/h", EvaluationService.SpeedConverter.printConversion(1.5));
 	}
 	
 	public void testPrintConversion2() {
-		assertEquals("10.25 km/h = 6 mi/h", evaluationService.printConversion(10.25));
+		assertEquals("10.25 km/h = 6 mi/h", EvaluationService.SpeedConverter.printConversion(10.25));
 	}
 	
 	public void testPrintConversionInvalid() {
-		assertEquals("Invalid Value", evaluationService.printConversion(-5.6));
+		assertEquals("Invalid Value", EvaluationService.SpeedConverter.printConversion(-5.6));
 	}
 	
-
+	/*******************************************************************
+	 * Question 2
+	 ******************************************************************/
+	
+	
+	
+	
 	/*******************************************************************
 	 * Question 1
 	 ******************************************************************/

@@ -19,52 +19,68 @@ public class EvaluationService {
 	 *@param double
 	 *@return
 	 */
-	public long toMilesPerHour(double kilometersPerHour) {
-		if (kilometersPerHour < 0) {
-            return -1;
-        }
-        return Math.round(kilometersPerHour / 1.609);
+	static class SpeedConverter {
+	
+		public static long toMilesPerHour(double kilometersPerHour) {
+			if (kilometersPerHour < 0) {
+	            return -1;
+	        }
+	        return Math.round(kilometersPerHour / 1.609);
+		}
+		/**
+		 * 1.B) Write another method called printConversion with 1 parameter of type double with 
+		 * the name kilometersPerHour.  This method needs to return a String and needs to calculate
+		 * milesPerHour from the kilometersPerHour parameter.
+		 * 
+		 * The String should print in the format: "XX km/h = YY mi/h" 
+		 * 
+		 * XX represents the original value kilometersPerHour.
+		 * YY represents the rounded milesPerHour from the kilometersPerHour parameter.
+		 * 
+		 * If the parameter kilometersPerHour is < 0, then print the text "Invalid Value"
+		 *
+		 *@param double
+		 *@return
+		 */
+		public static String printConversion(double kilometersPerHour) {
+	        if (kilometersPerHour < 0) {
+	            return("Invalid Value");
+	        } else {
+	            long milesPerHour = toMilesPerHour(kilometersPerHour);
+	            return (kilometersPerHour +
+	                    " km/h = " + milesPerHour +
+	                    " mi/h");
+	        }
+		}		
 	}
 	
 	/**
-	 * 1.B) Write another method called printConversion with 1 parameter of type double with 
-	 * the name kilometersPerHour.  This method needs to return a String and needs to calulate
-	 * milesPerHour from the kilometersPerHour parameter.
+	 * Write a method called printMegaBytesAndKiloBytes that has 1 parameter of type int with the name kiloBytes.
 	 * 
-	 * The String should print in the format: "XX km/h = YY mi/h" 
+	 * The method should return a String and it needs to calculate the megabytes and remaining kilobytes 
+	 * from the kilobytes parameter.
 	 * 
-	 * XX represents the original value kilometersPerHour.
-	 * YY represents the rounded milesPerHour from the kilometersPerHour parameter.
+	 * Then it needs to print a message in the format "XX KB = YY MB and ZZ KB".
 	 * 
-	 * If the parameter kilometersPerHour is < 0, then print the text "Invalid Value"
-	 *
-	 *@param double
-	 *@return
+	 * XX represents the original value kiloBytes.
+	 * YY represents the calculated megabytes.
+	 * ZZ represents the calculated remaining kilobytes.
+	 * 
+	 * For examples, when the parameter kiloBytes is 2500 it needs to print "2500 KB = 2 MB and 452 KB"
+	 * 
+	 * If the parameter kiloBytes is less than 0 then print the text "Invalid Value".
+	 * 
+	 * @param int
+	 * @return
 	 */
-	
-	public String printConversion(double kilometersPerHour) {
-        if (kilometersPerHour < 0) {
-            return("Invalid Value");
-        } else {
-            long milesPerHour = toMilesPerHour(kilometersPerHour);
-            return (kilometersPerHour +
-                    " km/h = " + milesPerHour +
-                    " mi/h");
-        }
-	}
-	
-	/**
-	 * 2. 	
-	 */
-	
-	public static void printMegaBytesAndKiloBytes(int XX) {
+	public String printMegaBytesAndKiloBytes(int XX) {
 	        
 	    if (XX < 0) {
-	        System.out.println("Invalid Value");
+	        return("Invalid Value");
 	    } else {
 	        int YY = XX / 1024;
 	        int ZZ = XX % 1024;
-	        System.out.println(XX + " KB = " + YY + " MB and " + ZZ + " KB");
+	        return(XX + " KB = " + YY + " MB and " + ZZ + " KB");
 	    }
 	 }
 
