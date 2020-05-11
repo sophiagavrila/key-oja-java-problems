@@ -63,7 +63,17 @@ public class EvaluationServiceTest {
 	 * Question 2
 	 ******************************************************************/
 	
+	public void testPrintMegaBytesAndKiloBytes1() {
+		assertEquals("2500 KB = 2 MB and 452 KB", evaluationService.printMegaBytesAndKiloBytes(2500));
+	}
 	
+	public void testPrintMegaBytesAndKiloBytes2() {
+		assertEquals("5000 KB = 4 MB and 904 KB", evaluationService.printMegaBytesAndKiloBytes(5000));
+	}
+	
+	public void testPrintMegaBytesAndKiloBytesInvalid() {
+		assertEquals("Invalid Value", evaluationService.printMegaBytesAndKiloBytes(-1024));
+	}
 	
 	
 	/*******************************************************************
