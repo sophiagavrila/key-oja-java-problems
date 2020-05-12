@@ -183,6 +183,28 @@ public class EvaluationServiceTest {
 		assertEquals(-1, evaluationService.getGreatestCommonDivisor(9, 18));
 	}
 	
+	/*******************************************************************
+	 * Question 9
+	 ******************************************************************/
+	@Test
+	public void testFirstAndLastDigit1() {
+		assertEquals(4, evaluationService.sumFirstAndLastDigit(252));
+	}
+	
+	@Test
+	public void testFirstAndLastDigit2() {
+		assertEquals(9, evaluationService.sumFirstAndLastDigit(257));
+	}
+	
+	@Test
+	public void testFirstAndLastDigit3() {
+		assertEquals(0, evaluationService.sumFirstAndLastDigit(0));
+	}
+	
+	@Test
+	public void testFirstAndLastDigitInvalid() {
+		assertEquals(-1, evaluationService.sumFirstAndLastDigit(-10));
+	}
 	
 	/*******************************************************************
 	 * Question 1

@@ -259,7 +259,8 @@ public class EvaluationService {
      *  12 can be divided by 1, 2, 3, 4, 6, 12
      *  30 can be divided by 1, 2, 3, 5, 6, 10, 15, 30
      *  
-     *  The greatest common divisor is 6 since both 12 and 30 can be divided by 6, and there is no resulting remainder.
+     *  The greatest common divisor is 6 since both 12 and 30 can be divided by 6, 
+     *  and there is no resulting remainder.
      */
     public int getGreatestCommonDivisor(int first, int second) {
         if (first < 10 || second < 10) return -1;
@@ -270,6 +271,35 @@ public class EvaluationService {
             }
         }
         return -1;
+    }
+    
+    
+    /**
+     * 9. First and Last Digit Sum 
+     * 
+     * Write a method named sumFirstAndLastDigit with one parameter of type int called number.
+     * 
+     * The method needs to find the first and the last digit of the parameter number passed 
+     * to the method, using a loop and return the sum of the first and the last digit of that number.
+     * 
+     * If the number is negative then the method needs to return -1 to indicate an invalid value.
+     */
+    public int sumFirstAndLastDigit(int num) {
+        if (num < 0) {
+            return -1;
+        } else if (num < 10) {
+            return num + (num % 10);
+        }
+        int sum = num % 10; // 1234 --> lastDigit = 4
+        while (num >= 10) {
+            num = num/10;
+
+            if (num <= 10) {
+                int firstDigit = num % 10;
+                sum += firstDigit;
+            }
+        }
+        return sum;
     }
     
 	/**
