@@ -6,13 +6,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.junit.Rule;
@@ -205,6 +201,12 @@ public class EvaluationServiceTest {
 	public void testFirstAndLastDigitInvalid() {
 		assertEquals(-1, evaluationService.sumFirstAndLastDigit(-10));
 	}
+	
+	/*******************************************************************
+	 * Question 10
+	 ******************************************************************/
+
+	
 	
 	/*******************************************************************
 	 * Question 1
