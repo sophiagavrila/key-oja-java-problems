@@ -47,14 +47,17 @@ public class EvaluationServiceTest {
 	/*******************************************************************
 	 * Question 1.B
 	 ******************************************************************/
+	@Test
 	public void testPrintConversion1() {
 		assertEquals("1.5 km/h = 1 mi/h", EvaluationService.SpeedConverter.printConversion(1.5));
 	}
 	
+	@Test
 	public void testPrintConversion2() {
 		assertEquals("10.25 km/h = 6 mi/h", EvaluationService.SpeedConverter.printConversion(10.25));
 	}
 	
+	@Test
 	public void testPrintConversionInvalid() {
 		assertEquals("Invalid Value", EvaluationService.SpeedConverter.printConversion(-5.6));
 	}
@@ -62,15 +65,17 @@ public class EvaluationServiceTest {
 	/*******************************************************************
 	 * Question 2
 	 ******************************************************************/
-	
+	@Test
 	public void testPrintMegaBytesAndKiloBytes1() {
 		assertEquals("2500 KB = 2 MB and 452 KB", evaluationService.printMegaBytesAndKiloBytes(2500));
 	}
 	
+	@Test
 	public void testPrintMegaBytesAndKiloBytes2() {
 		assertEquals("5000 KB = 4 MB and 904 KB", evaluationService.printMegaBytesAndKiloBytes(5000));
 	}
 	
+	@Test
 	public void testPrintMegaBytesAndKiloBytesInvalid() {
 		assertEquals("Invalid Value", evaluationService.printMegaBytesAndKiloBytes(-1024));
 	}
@@ -78,15 +83,17 @@ public class EvaluationServiceTest {
 	/*******************************************************************
 	 * Question 3
 	 ******************************************************************/
-	
+	@Test
 	public void testBarkingDog1() {
 		assertEquals(true, evaluationService.shouldWakeUp(true, 1));
 	}
 	
+	@Test
 	public void testBarkingDog2() {
 		assertEquals(false, evaluationService.shouldWakeUp(false, 2));
 	}
 	
+	@Test
 	public void testBarkingDogInvalid() {
 		assertEquals(false, evaluationService.shouldWakeUp(true, -1));
 	}
@@ -94,15 +101,17 @@ public class EvaluationServiceTest {
 	/*******************************************************************
 	 * Question 4
 	 ******************************************************************/
-	
+	@Test
 	public void testDecimalComparator1() {
 		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(-3.1756, -3.175));
 	}
 	
+	@Test
 	public void testDecimalComparator2() {
 		assertEquals(false, evaluationService.areEqualByThreeDecimalPlaces(3.175, 3.176));
 	}
 	
+	@Test
 	public void testDecimalComparator3() {
 		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(3.0, 3.0));
 	}
@@ -110,17 +119,37 @@ public class EvaluationServiceTest {
 	/*******************************************************************
 	 * Question 5
 	 ******************************************************************/
-	
+	@Test
 	public void testTeenNumberChecker1() {
 		assertEquals(true, EvaluationService.TeenNumberChecker.hasTeen(9, 99, 19));
 	}
 	
+	@Test
 	public void testTeenNumberChecker2() {
 		assertEquals(true, EvaluationService.TeenNumberChecker.hasTeen(23, 15, 42));
 	}
 	
+	@Test
 	public void testTeenNumberChecker3() {
 		assertEquals(false, EvaluationService.TeenNumberChecker.hasTeen(22, 34, 44));
+	}
+	
+	/*******************************************************************
+	 * Question 6
+	 ******************************************************************/
+	@Test
+	public void testMinutesToDaysAndYears1() {
+		assertEquals("525600 min = 1 y and 0 d", evaluationService.printYearsAndDays(525600));
+	}
+	
+	@Test
+	public void testMinutesToDaysAndYears2() {
+		assertEquals("1051200 min = 2 y and 0 d", evaluationService.printYearsAndDays(1051200));
+	}
+	
+	@Test
+	public void testMinutesToDaysAndYears3() {
+		assertEquals("561600 min = 1 y and 25 d", evaluationService.printYearsAndDays(561600));
 	}
 	
 	/*******************************************************************

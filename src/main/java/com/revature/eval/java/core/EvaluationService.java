@@ -183,6 +183,74 @@ public class EvaluationService {
 	}
 	
 	/**
+	 * 6. Minutes To Years and Days Calculator
+	 * 
+	 * Write a method printYearsAndDays with parameter of type long named minutes.
+	 * The method should not return anything (void) and it needs to calculate the 
+	 * years and days from the minutes parameter.
+	 * 
+	 * If the parameter is less than 0, print text "Invalid Value".
+	 * 
+	 * Otherwise, if the parameter is valid then it needs to print a message in 
+	 * the format "XX min = YY y and ZZ d".
+	 * 
+	 * XX represents the original value minutes.
+	 * YY represents the calculated years.
+	 * ZZ represents the calculated days.
+	 */
+	
+	public String printYearsAndDays(long minutes) {
+        if (minutes < 0) {
+            return ("Invalid Value");
+        } else {
+            long years = ((minutes / 60) / 24) / 365;
+            long remainingDays = ((minutes / 60) / 24) % 365;
+            return (minutes + " min = " + years + " y and " + remainingDays + " d");
+        }
+    }
+	
+	/**
+	 * 7. Number In Word 
+	 * 
+	 * Write a method called printNumberInWord. The method has one parameter number 
+	 * which is the whole number. The method needs to print "ZERO", "ONE", "TWO", 
+	 * ... "NINE", "OTHER" if the int parameter number is 0, 1, 2, .... 9 or other 
+	 * for any other number including negative numbers. You can use if-else statement 
+	 * or switch statement whatever is easier for you.
+	 */
+		
+    public String printNumberInWord(int number) {
+        switch(number) {
+            case 0:
+                return ("ZERO");
+            case 1:
+                return ("ONE");
+            case 2:
+                return ("TWO");
+            case 3:
+                return ("THREE");
+            case 4:
+                return ("FOUR");
+            case 5:
+                return ("FIVE");
+            case 6:
+                return ("SIX");
+            case 7:
+                return ("SEVEN");
+            case 8:
+                return ("EIGHT");
+            case 9:
+                return ("NINE");
+            default:
+                return ("OTHER");
+        }
+    }
+	
+    /**
+     * 8.   
+     */
+	
+	/**
 	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 * 
