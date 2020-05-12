@@ -303,15 +303,16 @@ public class EvaluationService {
     }
     
 	/**
-	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
+	 * 10. Without using the StringBuilder or StringBuffer class, write a method that
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
-	 * 
-	 * @param string
-	 * @return
 	 */
 	public String reverse(String string) {
+		String reverseString = "";
 		
-		return null;
+		for(int i=string.length()-1; i>=0; i--) {
+			reverseString += string.charAt(i);
+		}
+		return reverseString;
 	}
 
 	/**
