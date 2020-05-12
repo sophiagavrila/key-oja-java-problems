@@ -166,6 +166,25 @@ public class EvaluationServiceTest {
 	}
 	
 	/*******************************************************************
+	 * Question 8
+	 ******************************************************************/
+	@Test
+	public void testGreatestCommonDivisor1() {
+		assertEquals(5, evaluationService.getGreatestCommonDivisor(25, 15));
+	}
+	
+	@Test
+	public void testGreatestCommonDivisor2() {
+		assertEquals(6, evaluationService.getGreatestCommonDivisor(12, 30));
+	}
+	
+	@Test
+	public void testGreatestCommonDivisor3() {
+		assertEquals(-1, evaluationService.getGreatestCommonDivisor(9, 18));
+	}
+	
+	
+	/*******************************************************************
 	 * Question 1
 	 ******************************************************************/
 	@Test

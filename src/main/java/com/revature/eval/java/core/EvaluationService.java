@@ -138,7 +138,6 @@ public class EvaluationService {
 	 * @param secondNum
 	 * @return
 	 */
-	
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
         if ((int)(firstNum * 1000) == (int)(secondNum * 1000)) {
             return true;
@@ -161,7 +160,6 @@ public class EvaluationService {
 	 * @param z
 	 * @return
 	 */
-	
 	static class TeenNumberChecker {
 		
 	    public static boolean hasTeen (int x, int y, int z) {
@@ -198,7 +196,6 @@ public class EvaluationService {
 	 * YY represents the calculated years.
 	 * ZZ represents the calculated days.
 	 */
-	
 	public String printYearsAndDays(long minutes) {
         if (minutes < 0) {
             return ("Invalid Value");
@@ -218,7 +215,6 @@ public class EvaluationService {
 	 * for any other number including negative numbers. You can use if-else statement 
 	 * or switch statement whatever is easier for you.
 	 */
-		
     public String printNumberInWord(int number) {
         switch(number) {
             case 0:
@@ -254,14 +250,28 @@ public class EvaluationService {
      *  
      *  If one of the parameters is < 10, the method should return -1 to indicate an 
      *  invalid value.
-     *  
      *  The method should return the greatest common divisor of the two numbers (int).
      *  
      *  The greatest common divisor is the largest positive integer that can fully 
      *  divide each of the integers (i.e. without leaving a remainder).
-
+     *  
+     *  For example 12 and 30:
+     *  12 can be divided by 1, 2, 3, 4, 6, 12
+     *  30 can be divided by 1, 2, 3, 5, 6, 10, 15, 30
+     *  
+     *  The greatest common divisor is 6 since both 12 and 30 can be divided by 6, and there is no resulting remainder.
      */
-	
+    public int getGreatestCommonDivisor(int first, int second) {
+        if (first < 10 || second < 10) return -1;
+        int smallestNumber = Math.min(first, second);
+        for (int divisor = smallestNumber; divisor > 0; divisor--) {
+            if (first % divisor == 0 && second % divisor == 0) {
+                return divisor;
+            }
+        }
+        return -1;
+    }
+    
 	/**
 	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
