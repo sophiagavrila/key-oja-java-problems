@@ -2,8 +2,10 @@ package com.revature.eval.java.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class EvaluationService {
 
@@ -143,11 +145,6 @@ public class EvaluationService {
 	 * The method should return boolean and it needs to return true if ONE of the
 	 * parameters is in range 13(inclusive) - 19 (inclusive). Otherwise return
 	 * false.
-	 * 
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @return
 	 */
 	static class TeenNumberChecker {
 
@@ -568,7 +565,7 @@ public class EvaluationService {
 	}
 
 	/**
-	 * 18. Calculate nth Prime 
+	 * 18. Calculate Nth Prime
 	 * 
 	 * Given a number n, determine what the nth prime is.
 	 * 
@@ -600,57 +597,9 @@ public class EvaluationService {
 	}
 
 	/**
-	 * 13 & 14. Create an implementation of the atbash cipher, an ancient encryption
-	 * system created in the Middle East.
+	 * 19. Pangram
 	 * 
-	 * The Atbash cipher is a simple substitution cipher that relies on transposing
-	 * all the letters in the alphabet such that the resulting alphabet is
-	 * backwards. The first letter is replaced with the last letter, the second with
-	 * the second-last, and so on.
-	 * 
-	 * An Atbash cipher for the Latin alphabet would be as follows:
-	 * 
-	 * Plain: abcdefghijklmnopqrstuvwxyz Cipher: zyxwvutsrqponmlkjihgfedcba It is a
-	 * very weak cipher because it only has one possible key, and it is a simple
-	 * monoalphabetic substitution cipher. However, this may not have been an issue
-	 * in the cipher's time.
-	 * 
-	 * Ciphertext is written out in groups of fixed length, the traditional group
-	 * size being 5 letters, and punctuation is excluded. This is to make it harder
-	 * to guess things based on word boundaries.
-	 * 
-	 * Examples Encoding test gives gvhg Decoding gvhg gives test Decoding gsvjf
-	 * rxpyi ldmul cqfnk hlevi gsvoz abwlt gives thequickbrownfoxjumpsoverthelazydog
-	 *
-	 */
-	static class AtbashCipher {
-
-		/**
-		 * Question 13
-		 * 
-		 * @param string
-		 * @return
-		 */
-		public static String encode(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
-		}
-
-		/**
-		 * Question 14
-		 * 
-		 * @param string
-		 * @return
-		 */
-		public static String decode(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
-		}
-	}
-
-
-	/**
-	 * 16. Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan
+	 * Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan
 	 * gramma, "every letter") is a sentence using every letter of the alphabet at
 	 * least once. The best known English pangram is:
 	 * 
@@ -658,104 +607,47 @@ public class EvaluationService {
 	 * 
 	 * The alphabet used consists of ASCII letters a to z, inclusive, and is case
 	 * insensitive. Input will not contain non-ASCII symbols.
-	 * 
-	 * @param string
-	 * @return
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		String cleanString = string.replaceAll("[^A-Za-z]", "");
+		if (cleanString.length() < 26) {
+			return false;
+		} else if (string.equals("")) {
+			return false;
+		} else {
+			for (char ch = 'a'; ch <= 'z'; ch++) {
+				if (cleanString.indexOf(ch) < 0) {
+					return false;
+				}
+			}
+			return true;
+		}
 	}
 
 	/**
-	 * 18. Given a number, find the sum of all the unique multiples of particular
+	 * 20. Sum of Multiples 
+	 * 
+	 * Given a number, find the sum of all the unique multiples of particular
 	 * numbers up to but not including that number.
 	 * 
 	 * If we list all the natural numbers below 20 that are multiples of 3 or 5, we
 	 * get 3, 5, 6, 9, 10, 12, 15, and 18.
 	 * 
 	 * The sum of these multiples is 78.
-	 * 
-	 * @param i
-	 * @param set
-	 * @return
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		Set<Integer> hs = new HashSet<Integer>();
+		int k = 0;
+		int j = 0;
+		int num = 0;
+		for (j = 0; j < set.length; j++) {
+			num = set[j];
+			for (k = 1; num * k < i; k++) {
+				int product = num * k;
+				hs.add(product);
+			}
+		}
+		int sum = hs.stream().mapToInt(Integer::intValue).sum();
+		return sum;
 	}
-
-	/**
-	 * 19. Given a number determine whether or not it is valid per the Luhn formula.
-	 * 
-	 * The Luhn algorithm is a simple checksum formula used to validate a variety of
-	 * identification numbers, such as credit card numbers and Canadian Social
-	 * Insurance Numbers.
-	 * 
-	 * The task is to check if a given string is valid.
-	 * 
-	 * Validating a Number Strings of length 1 or less are not valid. Spaces are
-	 * allowed in the input, but they should be stripped before checking. All other
-	 * non-digit characters are disallowed.
-	 * 
-	 * Example 1: valid credit card number 1 4539 1488 0343 6467 The first step of
-	 * the Luhn algorithm is to double every second digit, starting from the right.
-	 * We will be doubling
-	 * 
-	 * 4_3_ 1_8_ 0_4_ 6_6_ If doubling the number results in a number greater than 9
-	 * then subtract 9 from the product. The results of our doubling:
-	 * 
-	 * 8569 2478 0383 3437 Then sum all of the digits:
-	 * 
-	 * 8+5+6+9+2+4+7+8+0+3+8+3+3+4+3+7 = 80 If the sum is evenly divisible by 10,
-	 * then the number is valid. This number is valid!
-	 * 
-	 * Example 2: invalid credit card number 1 8273 1232 7352 0569 Double the second
-	 * digits, starting from the right
-	 * 
-	 * 7253 2262 5312 0539 Sum the digits
-	 * 
-	 * 7+2+5+3+2+2+6+2+5+3+1+2+0+5+3+9 = 57 57 is not evenly divisible by 10, so
-	 * this number is not valid.
-	 * 
-	 * @param string
-	 * @return
-	 */
-	public boolean isLuhnValid(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
-	}
-
-	/**
-	 * 20. Parse and evaluate simple math word problems returning the answer as an
-	 * integer.
-	 * 
-	 * Add two numbers together.
-	 * 
-	 * What is 5 plus 13?
-	 * 
-	 * 18
-	 * 
-	 * Now, perform the other three operations.
-	 * 
-	 * What is 7 minus 5?
-	 * 
-	 * 2
-	 * 
-	 * What is 6 multiplied by 4?
-	 * 
-	 * 24
-	 * 
-	 * What is 25 divided by 5?
-	 * 
-	 * 5
-	 * 
-	 * @param string
-	 * @return
-	 */
-	public int solveWordProblem(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
-	}
-
 }

@@ -524,94 +524,6 @@ public class EvaluationServiceTest {
 	/*******************************************************************
 	 * Question 19
 	 ******************************************************************/
-
-	@Test
-	public void testEncodeYes() {
-		assertEquals("bvh", EvaluationService.AtbashCipher.encode("yes"));
-	}
-
-	@Test
-	public void testEncodeOmgInCapital() {
-		assertEquals("lnt", EvaluationService.AtbashCipher.encode("OMG"));
-	}
-
-	@Test
-	public void testEncodeMindBlowingly() {
-		assertEquals("nrmwy oldrm tob", EvaluationService.AtbashCipher.encode("mindblowingly"));
-	}
-
-	@Test
-	public void testEncodeNumbers() {
-		assertEquals("gvhgr mt123 gvhgr mt", EvaluationService.AtbashCipher.encode("Testing,1 2 3, testing."));
-	}
-
-	@Test
-	public void testEncodeDeepThought() {
-		assertEquals("gifgs rhurx grlm", EvaluationService.AtbashCipher.encode("Truth is fiction."));
-	}
-
-	@Test
-	public void testEncodeAllTheLetters() {
-		assertEquals("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt",
-				EvaluationService.AtbashCipher.encode("The quick brown fox jumps over the lazy dog."));
-	}
-
-	/*******************************************************************
-	 * Question 14
-	 ******************************************************************/
-	@Test
-	public void testDecodeExercism() {
-		assertEquals("exercism", EvaluationService.AtbashCipher.decode("vcvix rhn"));
-	}
-
-	@Test
-	public void testDecodeASentence() {
-		assertEquals("anobstacleisoftenasteppingstone",
-				EvaluationService.AtbashCipher.decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v"));
-	}
-
-	@Test
-	public void testDecodeNumbers() {
-		assertEquals("testing123testing", EvaluationService.AtbashCipher.decode("gvhgr mt123 gvhgr mt"));
-	}
-
-	@Test
-	public void testDecodeAllTheLetters() {
-		assertEquals("thequickbrownfoxjumpsoverthelazydog",
-				EvaluationService.AtbashCipher.decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"));
-	}
-
-	/*******************************************************************
-	 * Question 15
-	 ******************************************************************/
-	@Test
-	public void validIsbnNumber() {
-		assertTrue(evaluationService.isValidIsbn("3-598-21508-8"));
-	}
-
-	@Test
-	public void invalidIsbnCheckDigit() {
-		assertFalse(evaluationService.isValidIsbn("3-598-21508-9"));
-	}
-
-	@Test
-	public void validIsbnNumberWithCheckDigitOfTen() {
-		assertTrue(evaluationService.isValidIsbn("3-598-21507-X"));
-	}
-
-	@Test
-	public void checkDigitIsACharacterOtherThanX() {
-		assertFalse(evaluationService.isValidIsbn("3-598-21507-A"));
-	}
-
-	@Test
-	public void invalidCharacterInIsbn() {
-		assertFalse(evaluationService.isValidIsbn("3-598-2K507-0"));
-	}
-
-	/*******************************************************************
-	 * Question 16
-	 ******************************************************************/
 	@Test
 	public void emptySentenceIsNotPangram() {
 		assertFalse(evaluationService.isPangram(""));
@@ -639,7 +551,7 @@ public class EvaluationServiceTest {
 
 
 	/*******************************************************************
-	 * Question 18
+	 * Question 20
 	 ******************************************************************/
 	@Test
 	public void testSumOfMultiplesOf4and6UpToFifteen() {
@@ -685,61 +597,4 @@ public class EvaluationServiceTest {
 		assertEquals(4950, output);
 
 	}
-
-	/*******************************************************************
-	 * Question 19
-	 ******************************************************************/
-	@Test
-	public void testThatAValidCanadianSocialInsuranceNumberIsIdentifiedAsValidV1() {
-		assertTrue(evaluationService.isLuhnValid("046 454 286"));
-	}
-
-	@Test
-	public void testThatAnInvalidCanadianSocialInsuranceNumberIsIdentifiedAsInvalid() {
-		assertFalse(evaluationService.isLuhnValid("046 454 287"));
-	}
-
-	@Test
-	public void testThatAnInvalidCreditCardIsIdentifiedAsInvalid() {
-		assertFalse(evaluationService.isLuhnValid("8273 1232 7352 0569"));
-	}
-
-	@Test
-	public void testThatAddingANonDigitCharacterToAValidStringInvalidatesTheString() {
-		assertFalse(evaluationService.isLuhnValid("046a 454 286"));
-	}
-
-	@Test
-	public void testThatStringContainingPunctuationIsInvalid() {
-		assertFalse(evaluationService.isLuhnValid("055-444-285"));
-	}
-
-	/*******************************************************************
-	 * Question 20
-	 ******************************************************************/
-	@Test
-	public void testSingleAddition1() {
-		assertEquals(2, evaluationService.solveWordProblem("What is 1 plus 1?"));
-	}
-
-	@Test
-	public void testSingleAdditionWithNegativeNumbers() {
-		assertEquals(-11, evaluationService.solveWordProblem("What is -1 plus -10?"));
-	}
-
-	@Test
-	public void testSingleSubtraction() {
-		assertEquals(16, evaluationService.solveWordProblem("What is 4 minus -12?"));
-	}
-
-	@Test
-	public void testSingleMultiplication() {
-		assertEquals(-75, evaluationService.solveWordProblem("What is -3 multiplied by 25?"));
-	}
-
-	@Test
-	public void testSingleDivision() {
-		assertEquals(-11, evaluationService.solveWordProblem("What is 33 divided by -3?"));
-	}
-
 }
