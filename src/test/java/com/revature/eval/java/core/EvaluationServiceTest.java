@@ -153,6 +153,19 @@ public class EvaluationServiceTest {
 	}
 	
 	/*******************************************************************
+	 * Question 7
+	 ******************************************************************/
+	@Test
+	public void testNumberInWord1() {
+		assertEquals("THREE", evaluationService.printNumberInWord(3));
+	}
+	
+	@Test
+	public void testNumberInWord2() {
+		assertEquals("OTHER", evaluationService.printNumberInWord(13));
+	}
+	
+	/*******************************************************************
 	 * Question 1
 	 ******************************************************************/
 	@Test
