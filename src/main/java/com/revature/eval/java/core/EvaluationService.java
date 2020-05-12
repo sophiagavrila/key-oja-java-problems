@@ -1,151 +1,138 @@
 package com.revature.eval.java.core;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class EvaluationService {
-	
+
 	/**
 	 * 1.A Speed Converter - Convert to MilesPerHour
 	 * 
-	 * Write a method called toMilesPerHour that has 1 parameter of type double with 
-	 * the name kilometersPerHour.  This method needs to return the rounded value of the
-	 * calculation of type long.
+	 * Write a method called toMilesPerHour that has 1 parameter of type double with
+	 * the name kilometersPerHour. This method needs to return the rounded value of
+	 * the calculation of type long.
 	 * 
-	 * If the parameter kilometersPerHour is less than 0, the method toMilesPerHour needs
-	 * to return -1 to indicate an invalid value.
+	 * If the parameter kilometersPerHour is less than 0, the method toMilesPerHour
+	 * needs to return -1 to indicate an invalid value.
 	 * 
-	 * Otherwise if it is positive, calculate the value of miles per hour, round it and
-	 * return it.  For conversion and rounding use Math.round().
-	 *
-	 *@param kilometersPerHour
-	 *@return
+	 * Otherwise if it is positive, calculate the value of miles per hour, round it
+	 * and return it. For conversion and rounding use Math.round().
 	 */
 	static class SpeedConverter {
-	
+
 		public static long toMilesPerHour(double kilometersPerHour) {
 			if (kilometersPerHour < 0) {
-	            return -1;
-	        }
-	        return Math.round(kilometersPerHour / 1.609);
+				return -1;
+			}
+			return Math.round(kilometersPerHour / 1.609);
 		}
+
 		/**
-		 * 1.B Speed Converter - Print Conversion 
+		 * 1.B Speed Converter - Print Conversion
 		 * 
-		 * Write another method called printConversion with 1 parameter of type double with 
-		 * the name kilometersPerHour.  This method needs to return a String and needs to calculate
+		 * Write another method called printConversion with 1 parameter of type double
+		 * with the name kilometersPerHour. This method needs to return a String and
+		 * needs to calculate milesPerHour from the kilometersPerHour parameter.
+		 * 
+		 * The String should print in the format: "XX km/h = YY mi/h"
+		 * 
+		 * XX represents the original value kilometersPerHour. YY represents the rounded
 		 * milesPerHour from the kilometersPerHour parameter.
 		 * 
-		 * The String should print in the format: "XX km/h = YY mi/h" 
-		 * 
-		 * XX represents the original value kilometersPerHour.
-		 * YY represents the rounded milesPerHour from the kilometersPerHour parameter.
-		 * 
-		 * If the parameter kilometersPerHour is < 0, then print the text "Invalid Value"
-		 *
-		 *@param kilometersPerHour
-		 *@return
+		 * If the parameter kilometersPerHour is < 0, then print the text "Invalid
+		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-	        if (kilometersPerHour < 0) {
-	            return("Invalid Value");
-	        } else {
-	            long milesPerHour = toMilesPerHour(kilometersPerHour);
-	            return (kilometersPerHour +
-	                    " km/h = " + milesPerHour +
-	                    " mi/h");
-	        }
-		}		
+			if (kilometersPerHour < 0) {
+				return ("Invalid Value");
+			} else {
+				long milesPerHour = toMilesPerHour(kilometersPerHour);
+				return (kilometersPerHour + " km/h = " + milesPerHour + " mi/h");
+			}
+		}
 	}
-	
+
 	/**
 	 * 2. MegaBytes and KiloBytes
 	 * 
-	 * Write a method called printMegaBytesAndKiloBytes that has 1 parameter of type int with the name kiloBytes.
+	 * Write a method called printMegaBytesAndKiloBytes that has 1 parameter of type
+	 * int with the name kiloBytes.
 	 * 
-	 * The method should return a String and it needs to calculate the megabytes and remaining kilobytes 
-	 * from the kilobytes parameter.
+	 * The method should return a String and it needs to calculate the megabytes and
+	 * remaining kilobytes from the kilobytes parameter.
 	 * 
 	 * Then it needs to print a message in the format "XX KB = YY MB and ZZ KB".
 	 * 
-	 * XX represents the original value kiloBytes.
-	 * YY represents the calculated megabytes.
-	 * ZZ represents the calculated remaining kilobytes.
+	 * XX represents the original value kiloBytes. YY represents the calculated
+	 * megabytes. ZZ represents the calculated remaining kilobytes.
 	 * 
-	 * For examples, when the parameter kiloBytes is 2500 it needs to print "2500 KB = 2 MB and 452 KB"
+	 * For examples, when the parameter kiloBytes is 2500 it needs to print "2500 KB
+	 * = 2 MB and 452 KB"
 	 * 
-	 * If the parameter kiloBytes is less than 0 then print the text "Invalid Value".
-	 * 
-	 * @param XX
-	 * @return
+	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
+	 * Value".
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
-	        
-	    if (XX < 0) {
-	        return("Invalid Value");
-	    } else {
-	        int YY = XX / 1024;
-	        int ZZ = XX % 1024;
-	        return(XX + " KB = " + YY + " MB and " + ZZ + " KB");
-	    }
-	 }
-	
+
+		if (XX < 0) {
+			return ("Invalid Value");
+		} else {
+			int YY = XX / 1024;
+			int ZZ = XX % 1024;
+			return (XX + " KB = " + YY + " MB and " + ZZ + " KB");
+		}
+	}
+
 	/**
 	 * 3. Barking Dog
 	 * 
-	 * We have a dog that loves to bark.  We need to wake up if the dog is barking at night!
+	 * We have a dog that loves to bark. We need to wake up if the dog is barking at
+	 * night!
 	 * 
 	 * Write a method shouldWakeUp that has 2 parameters.
 	 * 
-	 * 1st parameter should be of type boolean and be named "barking".  It represents if our
-	 * dog is currently barking.
-	 * 2nd parameter represents the hour of the day and is of type int with the name hourOfDay
-	 * and has a valid range of 0-23.
+	 * 1st parameter should be of type boolean and be named "barking". It represents
+	 * if our dog is currently barking. 2nd parameter represents the hour of the day
+	 * and is of type int with the name hourOfDay and has a valid range of 0-23.
 	 * 
-	 * We have to wake up if the dog is barking before 8 or after 22 hours,
-	 * so in that case return true.
-	 *  
+	 * We have to wake up if the dog is barking before 8 or after 22 hours, so in
+	 * that case return true.
+	 * 
 	 * In all other cases return false.
 	 * 
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
-	 * 
-	 * @param isBarking
-	 * @param hourOfDay
-	 * @return
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 
-        if (hourOfDay < 0 || hourOfDay > 23) {
-            return false;
-        } else if (isBarking && (hourOfDay < 8 || hourOfDay > 22)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-	
+		if (hourOfDay < 0 || hourOfDay > 23) {
+			return false;
+		} else if (isBarking && (hourOfDay < 8 || hourOfDay > 22)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	/**
 	 * 4. DecimalComparator
 	 * 
-	 * Write a method areEqualByThreeDecimalPlaces with two parameters of type double.
+	 * Write a method areEqualByThreeDecimalPlaces with two parameters of type
+	 * double.
 	 * 
 	 * The method should return boolean and it needs to return true if two double
 	 * numbers are the same up to three decimal places.
 	 * 
 	 * Otherwise, return false;
-	 * 
-	 * @param firstNum
-	 * @param secondNum
-	 * @return
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-        if ((int)(firstNum * 1000) == (int)(secondNum * 1000)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-	
+		if ((int) (firstNum * 1000) == (int) (secondNum * 1000)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	/**
 	 * 5. Teen Number Checker
 	 * 
@@ -153,7 +140,8 @@ public class EvaluationService {
 	 * Write a method named hasTeen with 3 parameters of type int.
 	 * 
 	 * The method should return boolean and it needs to return true if ONE of the
-	 * parameters is in range 13(inclusive) - 19 (inclusive). Otherwise return false.
+	 * parameters is in range 13(inclusive) - 19 (inclusive). Otherwise return
+	 * false.
 	 * 
 	 * @param x
 	 * @param y
@@ -161,181 +149,192 @@ public class EvaluationService {
 	 * @return
 	 */
 	static class TeenNumberChecker {
-		
-	    public static boolean hasTeen (int x, int y, int z) {
-	        if (isTeen(x) || isTeen(y) || isTeen(z)) {
-	            return true;
-	        } else
-	            return false;
-	    }
-	 
-	    // We can initialize isTeen method first
-	    // Then pass the parameter to hasTeen method
-	 
-	    public static boolean isTeen (int number) {
-	        if (number < 13 || number > 19) {
-	            return false;
-	        } else
-	            return true;
-	    }
+
+		public static boolean hasTeen(int x, int y, int z) {
+			if (isTeen(x) || isTeen(y) || isTeen(z)) {
+				return true;
+			} else
+				return false;
+		}
+
+		// We can initialize isTeen method first
+		// Then pass the parameter to hasTeen method
+
+		public static boolean isTeen(int number) {
+			if (number < 13 || number > 19) {
+				return false;
+			} else
+				return true;
+		}
 	}
-	
+
 	/**
 	 * 6. Minutes To Years and Days Calculator
 	 * 
 	 * Write a method printYearsAndDays with parameter of type long named minutes.
-	 * The method should not return anything (void) and it needs to calculate the 
+	 * The method should not return anything (void) and it needs to calculate the
 	 * years and days from the minutes parameter.
 	 * 
 	 * If the parameter is less than 0, print text "Invalid Value".
 	 * 
-	 * Otherwise, if the parameter is valid then it needs to print a message in 
-	 * the format "XX min = YY y and ZZ d".
+	 * Otherwise, if the parameter is valid then it needs to print a message in the
+	 * format "XX min = YY y and ZZ d".
 	 * 
-	 * XX represents the original value minutes.
-	 * YY represents the calculated years.
+	 * XX represents the original value minutes. YY represents the calculated years.
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-        if (minutes < 0) {
-            return ("Invalid Value");
-        } else {
-            long years = ((minutes / 60) / 24) / 365;
-            long remainingDays = ((minutes / 60) / 24) % 365;
-            return (minutes + " min = " + years + " y and " + remainingDays + " d");
-        }
-    }
-	
-	/**
-	 * 7. Number In Word 
-	 * 
-	 * Write a method called printNumberInWord. The method has one parameter number 
-	 * which is the whole number. The method needs to print "ZERO", "ONE", "TWO", 
-	 * ... "NINE", "OTHER" if the int parameter number is 0, 1, 2, .... 9 or other 
-	 * for any other number including negative numbers. You can use if-else statement 
-	 * or switch statement whatever is easier for you.
-	 */
-    public String printNumberInWord(int number) {
-        switch(number) {
-            case 0:
-                return ("ZERO");
-            case 1:
-                return ("ONE");
-            case 2:
-                return ("TWO");
-            case 3:
-                return ("THREE");
-            case 4:
-                return ("FOUR");
-            case 5:
-                return ("FIVE");
-            case 6:
-                return ("SIX");
-            case 7:
-                return ("SEVEN");
-            case 8:
-                return ("EIGHT");
-            case 9:
-                return ("NINE");
-            default:
-                return ("OTHER");
-        }
-    }
-	
-    /**
-     * 8. Greatest Common Divisor
-     * 
-     *  Write a method named getGreatestCommonDivisor with two parameters of type int 
-     *  named first and second.
-     *  
-     *  If one of the parameters is < 10, the method should return -1 to indicate an 
-     *  invalid value.
-     *  The method should return the greatest common divisor of the two numbers (int).
-     *  
-     *  The greatest common divisor is the largest positive integer that can fully 
-     *  divide each of the integers (i.e. without leaving a remainder).
-     *  
-     *  For example 12 and 30:
-     *  12 can be divided by 1, 2, 3, 4, 6, 12
-     *  30 can be divided by 1, 2, 3, 5, 6, 10, 15, 30
-     *  
-     *  The greatest common divisor is 6 since both 12 and 30 can be divided by 6, 
-     *  and there is no resulting remainder.
-     */
-    public int getGreatestCommonDivisor(int first, int second) {
-        if (first < 10 || second < 10) return -1;
-        int smallestNumber = Math.min(first, second);
-        for (int divisor = smallestNumber; divisor > 0; divisor--) {
-            if (first % divisor == 0 && second % divisor == 0) {
-                return divisor;
-            }
-        }
-        return -1;
-    }
-    
-    
-    /**
-     * 9. First and Last Digit Sum 
-     * 
-     * Write a method named sumFirstAndLastDigit with one parameter of type int called number.
-     * 
-     * The method needs to find the first and the last digit of the parameter number passed 
-     * to the method, using a loop and return the sum of the first and the last digit of that number.
-     * 
-     * If the number is negative then the method needs to return -1 to indicate an invalid value.
-     */
-    public int sumFirstAndLastDigit(int num) {
-        if (num < 0) {
-            return -1;
-        } else if (num < 10) {
-            return num + (num % 10);
-        }
-        int sum = num % 10; // 1234 --> lastDigit = 4
-        while (num >= 10) {
-            num = num/10;
+		if (minutes < 0) {
+			return ("Invalid Value");
+		} else {
+			long years = ((minutes / 60) / 24) / 365;
+			long remainingDays = ((minutes / 60) / 24) % 365;
+			return (minutes + " min = " + years + " y and " + remainingDays + " d");
+		}
+	}
 
-            if (num <= 10) {
-                int firstDigit = num % 10;
-                sum += firstDigit;
-            }
-        }
-        return sum;
-    }
-    
 	/**
-	 * 10. Without using the StringBuilder or StringBuffer class, write a method that
-	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
+	 * 7. Number In Word
+	 * 
+	 * Write a method called printNumberInWord. The method has one parameter number
+	 * which is the whole number. The method needs to print "ZERO", "ONE", "TWO",
+	 * ... "NINE", "OTHER" if the int parameter number is 0, 1, 2, .... 9 or other
+	 * for any other number including negative numbers. You can use if-else
+	 * statement or switch statement whatever is easier for you.
+	 */
+	public String printNumberInWord(int number) {
+		switch (number) {
+		case 0:
+			return ("ZERO");
+		case 1:
+			return ("ONE");
+		case 2:
+			return ("TWO");
+		case 3:
+			return ("THREE");
+		case 4:
+			return ("FOUR");
+		case 5:
+			return ("FIVE");
+		case 6:
+			return ("SIX");
+		case 7:
+			return ("SEVEN");
+		case 8:
+			return ("EIGHT");
+		case 9:
+			return ("NINE");
+		default:
+			return ("OTHER");
+		}
+	}
+
+	/**
+	 * 8. Greatest Common Divisor
+	 * 
+	 * Write a method named getGreatestCommonDivisor with two parameters of type int
+	 * named first and second.
+	 * 
+	 * If one of the parameters is < 10, the method should return -1 to indicate an
+	 * invalid value. The method should return the greatest common divisor of the
+	 * two numbers (int).
+	 * 
+	 * The greatest common divisor is the largest positive integer that can fully
+	 * divide each of the integers (i.e. without leaving a remainder).
+	 * 
+	 * For example 12 and 30: 12 can be divided by 1, 2, 3, 4, 6, 12 30 can be
+	 * divided by 1, 2, 3, 5, 6, 10, 15, 30
+	 * 
+	 * The greatest common divisor is 6 since both 12 and 30 can be divided by 6,
+	 * and there is no resulting remainder.
+	 */
+	public int getGreatestCommonDivisor(int first, int second) {
+		if (first < 10 || second < 10)
+			return -1;
+		int smallestNumber = Math.min(first, second);
+		for (int divisor = smallestNumber; divisor > 0; divisor--) {
+			if (first % divisor == 0 && second % divisor == 0) {
+				return divisor;
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * 9. First and Last Digit Sum
+	 * 
+	 * Write a method named sumFirstAndLastDigit with one parameter of type int
+	 * called number.
+	 * 
+	 * The method needs to find the first and the last digit of the parameter number
+	 * passed to the method, using a loop and return the sum of the first and the
+	 * last digit of that number.
+	 * 
+	 * If the number is negative then the method needs to return -1 to indicate an
+	 * invalid value.
+	 */
+	public int sumFirstAndLastDigit(int num) {
+		if (num < 0) {
+			return -1;
+		} else if (num < 10) {
+			return num + (num % 10);
+		}
+		int sum = num % 10; // 1234 --> lastDigit = 4
+		while (num >= 10) {
+			num = num / 10;
+
+			if (num <= 10) {
+				int firstDigit = num % 10;
+				sum += firstDigit;
+			}
+		}
+		return sum;
+	}
+
+	/**
+	 * 10. Reverse String 
+	 * 
+	 * Without using the StringBuilder or StringBuffer class, write a method
+	 * that reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
 		String reverseString = "";
-		
-		for(int i=string.length()-1; i>=0; i--) {
+
+		for (int i = string.length() - 1; i >= 0; i--) {
 			reverseString += string.charAt(i);
 		}
 		return reverseString;
 	}
 
 	/**
-	 * 2. Convert a phrase to its acronym. Techies love their TLA (Three Letter
+	 * 12. Acronyms 
+	 * 
+	 * Convert a phrase to its acronym. Techies love their TLA (Three Letter
 	 * Acronyms)! Help generate some jargon by writing a program that converts a
 	 * long name like Portable Network Graphics to its acronym (PNG).
-	 * 
-	 * @param phrase
-	 * @return
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String cleanPhrase = phrase.replaceAll("-", " ");
+		String[] words = cleanPhrase.split(" ");
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < words.length; i++) {
+			sb.append(words[i].charAt(0));
+		}
+		String acronym = sb.toString().toUpperCase();
+		return acronym;
 	}
 
 	/**
-	 * 3. Determine if a triangle is equilateral, isosceles, or scalene. An
+	 * 13. Triangles 
+	 * 
+	 * Determine if a triangle is equilateral, isosceles, or scalene. An
 	 * equilateral triangle has all three sides the same length. An isosceles
-	 * triangle has at least two sides the same length. (It is sometimes specified
-	 * as having exactly two sides the same length, but for the purposes of this
-	 * exercise we'll say at least two.) A scalene triangle has all sides of
-	 * different lengths.
-	 *
+	 * triangle has at least two sides the same length.
+	 * 
+	 * (It is sometimes specified as having exactly two sides the same length, but
+	 * for the purposes of this exercise we'll say at least two.) A scalene triangle
+	 * has all sides of different lengths.
 	 */
 	static class Triangle {
 		private double sideOne;
@@ -379,19 +378,23 @@ public class EvaluationService {
 
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
+			if ((this.getSideOne() == this.getSideTwo()) && (this.getSideTwo() == this.getSideThree()))
+				return true;
 			return false;
 		}
 
 		public boolean isIsosceles() {
 			// TODO Write an implementation for this method declaration
+			if (this.getSideOne() == this.getSideTwo() || this.getSideOne() == this.getSideThree()
+					|| this.getSideTwo() == this.getSideThree())
+				return true;
 			return false;
 		}
 
 		public boolean isScalene() {
 			// TODO Write an implementation for this method declaration
-			return false;
+			return !isEquilateral() & !isIsosceles();
 		}
-
 	}
 
 	/**
@@ -410,8 +413,40 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		Map<String, Integer> set = new HashMap<String, Integer>();
+		set.put("A", 1);
+		set.put("B", 3);
+		set.put("C", 3);
+		set.put("D", 2);
+		set.put("E", 1);
+		set.put("F", 4);
+		set.put("G", 2);
+		set.put("H", 4);
+		set.put("I", 1);
+		set.put("J", 8);
+		set.put("K", 5);
+		set.put("L", 1);
+		set.put("M", 3);
+		set.put("N", 1);
+		set.put("O", 1);
+		set.put("P", 3);
+		set.put("Q", 10);
+		set.put("R", 1);
+		set.put("S", 1);
+		set.put("T", 1);
+		set.put("U", 1);
+		set.put("V", 4);
+		set.put("W", 4);
+		set.put("X", 8);
+		set.put("Y", 4);
+		set.put("Z", 10);
+		String[] arr = string.split("");
+		int sum = 0;
+		for (String chr : arr) {
+			sum += set.get(chr.toUpperCase());
+		}
+
+		return sum;
 	}
 
 	/**
@@ -446,8 +481,13 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+
+		string = string.replaceAll("[^\\d]", "");
+		if (string.length() == 10) {
+			return string;
+		} else {
+			throw new IllegalArgumentException();
+		}
 	}
 
 	/**
@@ -455,15 +495,11 @@ public class EvaluationService {
 	 * 
 	 * For example for the input "olly olly in come free" olly: 2 in: 1 come: 1
 	 * free: 1
-	 * 
-	 * @param string
-	 * @return
 	 */
 	public Map<String, Integer> wordCount(String string) {
 		// TODO Write an implementation for this method declaration
 		return null;
 	}
-
 
 	/**
 	 * 8. Implement a program that translates from English to Pig Latin.
