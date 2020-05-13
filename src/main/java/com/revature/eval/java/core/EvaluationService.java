@@ -259,19 +259,11 @@ public class EvaluationService {
 	public int sumFirstAndLastDigit(int num) {
 		if (num < 0) {
 			return -1;
-		} else if (num < 10) {
-			return num + (num % 10);
 		}
-		int sum = num % 10; // 1234 --> lastDigit = 4
-		while (num >= 10) {
-			num = num / 10;
-
-			if (num <= 10) {
-				int firstDigit = num % 10;
-				sum += firstDigit;
-			}
-		}
-		return sum;
+		
+		int digits = Integer.toString(num).length();
+		int firstDigit = num / (int) Math.pow(10, digits - 1);
+		return firstDigit + num % 10;
 	}
 
 	/**
