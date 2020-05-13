@@ -140,20 +140,14 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			if (isTeen(x) || isTeen(y) || isTeen(z)) {
-				return true;
-			} else
-				return false;
+			return isTeen(x) || isTeen(y) || isTeen(z);
 		}
 
 		// We can initialize isTeen method first
 		// Then pass the parameter to hasTeen method
 
 		public static boolean isTeen(int number) {
-			if (number < 13 || number > 19) {
-				return false;
-			} else
-				return true;
+			return (number >= 13 && number <= 19);
 		}
 	}
 
