@@ -169,11 +169,11 @@ public class EvaluationService {
 	public String printYearsAndDays(long minutes) {
 		if (minutes < 0) {
 			return ("Invalid Value");
-		} else {
-			long years = ((minutes / 60) / 24) / 365;
-			long remainingDays = ((minutes / 60) / 24) % 365;
-			return (minutes + " min = " + years + " y and " + remainingDays + " d");
 		}
+
+		long years = ((minutes / 60) / 24) / 365;
+		long remainingDays = ((minutes / 60) / 24) % 365;
+		return (minutes + " min = " + years + " y and " + remainingDays + " d");
 	}
 
 	/**
