@@ -74,14 +74,13 @@ public class EvaluationService {
 	 * Value".
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
-
 		if (XX < 0) {
 			return ("Invalid Value");
-		} else {
-			int YY = XX / 1024;
-			int ZZ = XX % 1024;
-			return (XX + " KB = " + YY + " MB and " + ZZ + " KB");
 		}
+
+		int YY = XX / 1024;
+		int ZZ = XX % 1024;
+		return (XX + " KB = " + YY + " MB and " + ZZ + " KB");
 	}
 
 	/**
