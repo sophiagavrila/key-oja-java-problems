@@ -452,13 +452,12 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-
 		string = string.replaceAll("[^\\d]", "");
+		
 		if (string.length() == 10) {
 			return string;
-		} else {
-			throw new IllegalArgumentException();
 		}
+		throw new IllegalArgumentException();
 	}
 
 	/**
