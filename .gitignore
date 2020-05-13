@@ -1,0 +1,5 @@
+**/target/*
+**/.travis.yml
+**/.classpath
+**/.project
+**/.settings/*

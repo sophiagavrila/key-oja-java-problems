@@ -25,10 +25,7 @@ public class EvaluationService {
 	static class SpeedConverter {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
-			if (kilometersPerHour < 0) {
-				return -1;
-			}
-			return Math.round(kilometersPerHour / 1.609);
+			return (kilometersPerHour < 0) ? -1 : Math.round(kilometersPerHour / 1.609);
 		}
 
 		/**
@@ -49,10 +46,10 @@ public class EvaluationService {
 		public static String printConversion(double kilometersPerHour) {
 			if (kilometersPerHour < 0) {
 				return ("Invalid Value");
-			} else {
-				long milesPerHour = toMilesPerHour(kilometersPerHour);
-				return (kilometersPerHour + " km/h = " + milesPerHour + " mi/h");
 			}
+
+			long milesPerHour = toMilesPerHour(kilometersPerHour);
+			return (kilometersPerHour + " km/h = " + milesPerHour + " mi/h");
 		}
 	}
 
@@ -77,14 +74,13 @@ public class EvaluationService {
 	 * Value".
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
-
 		if (XX < 0) {
 			return ("Invalid Value");
-		} else {
-			int YY = XX / 1024;
-			int ZZ = XX % 1024;
-			return (XX + " KB = " + YY + " MB and " + ZZ + " KB");
 		}
+
+		int YY = XX / 1024;
+		int ZZ = XX % 1024;
+		return (XX + " KB = " + YY + " MB and " + ZZ + " KB");
 	}
 
 	/**
@@ -107,14 +103,13 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-
 		if (hourOfDay < 0 || hourOfDay > 23) {
 			return false;
 		} else if (isBarking && (hourOfDay < 8 || hourOfDay > 22)) {
 			return true;
-		} else {
-			return false;
 		}
+
+		return false;
 	}
 
 	/**
@@ -129,11 +124,7 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		if ((int) (firstNum * 1000) == (int) (secondNum * 1000)) {
-			return true;
-		} else {
-			return false;
-		}
+		return (int) (firstNum * 1000) == (int) (secondNum * 1000);
 	}
 
 	/**
@@ -149,20 +140,14 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			if (isTeen(x) || isTeen(y) || isTeen(z)) {
-				return true;
-			} else
-				return false;
+			return isTeen(x) || isTeen(y) || isTeen(z);
 		}
 
 		// We can initialize isTeen method first
 		// Then pass the parameter to hasTeen method
 
 		public static boolean isTeen(int number) {
-			if (number < 13 || number > 19) {
-				return false;
-			} else
-				return true;
+			return (number >= 13 && number <= 19);
 		}
 	}
 
@@ -184,11 +169,11 @@ public class EvaluationService {
 	public String printYearsAndDays(long minutes) {
 		if (minutes < 0) {
 			return ("Invalid Value");
-		} else {
-			long years = ((minutes / 60) / 24) / 365;
-			long remainingDays = ((minutes / 60) / 24) % 365;
-			return (minutes + " min = " + years + " y and " + remainingDays + " d");
 		}
+
+		long years = ((minutes / 60) / 24) / 365;
+		long remainingDays = ((minutes / 60) / 24) % 365;
+		return (minutes + " min = " + years + " y and " + remainingDays + " d");
 	}
 
 	/**
@@ -274,19 +259,11 @@ public class EvaluationService {
 	public int sumFirstAndLastDigit(int num) {
 		if (num < 0) {
 			return -1;
-		} else if (num < 10) {
-			return num + (num % 10);
 		}
-		int sum = num % 10; // 1234 --> lastDigit = 4
-		while (num >= 10) {
-			num = num / 10;
-
-			if (num <= 10) {
-				int firstDigit = num % 10;
-				sum += firstDigit;
-			}
-		}
-		return sum;
+		
+		int digits = Integer.toString(num).length();
+		int firstDigit = num / (int) Math.pow(10, digits - 1);
+		return firstDigit + num % 10;
 	}
 
 	/**
@@ -375,23 +352,18 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			if ((this.getSideOne() == this.getSideTwo()) && (this.getSideTwo() == this.getSideThree()))
-				return true;
-			return false;
+			return (this.getSideOne() == this.getSideTwo())
+					&& (this.getSideTwo() == this.getSideThree());
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			if (this.getSideOne() == this.getSideTwo() || this.getSideOne() == this.getSideThree()
-					|| this.getSideTwo() == this.getSideThree())
-				return true;
-			return false;
+			return this.getSideOne() == this.getSideTwo()
+					|| this.getSideOne() == this.getSideThree()
+					|| this.getSideTwo() == this.getSideThree();
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return !isEquilateral() & !isIsosceles();
+			return !isEquilateral() && !isIsosceles();
 		}
 	}
 
@@ -480,13 +452,12 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-
 		string = string.replaceAll("[^\\d]", "");
+		
 		if (string.length() == 10) {
 			return string;
-		} else {
-			throw new IllegalArgumentException();
 		}
+		throw new IllegalArgumentException();
 	}
 
 	/**
