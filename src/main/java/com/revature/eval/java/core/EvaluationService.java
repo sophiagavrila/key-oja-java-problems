@@ -124,11 +124,7 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		if ((int) (firstNum * 1000) == (int) (secondNum * 1000)) {
-			return true;
-		} else {
-			return false;
-		}
+		return (int) (firstNum * 1000) == (int) (secondNum * 1000);
 	}
 
 	/**
