@@ -46,10 +46,10 @@ public class EvaluationService {
 		public static String printConversion(double kilometersPerHour) {
 			if (kilometersPerHour < 0) {
 				return ("Invalid Value");
-			} else {
-				long milesPerHour = toMilesPerHour(kilometersPerHour);
-				return (kilometersPerHour + " km/h = " + milesPerHour + " mi/h");
 			}
+
+			long milesPerHour = toMilesPerHour(kilometersPerHour);
+			return (kilometersPerHour + " km/h = " + milesPerHour + " mi/h");
 		}
 	}
 
