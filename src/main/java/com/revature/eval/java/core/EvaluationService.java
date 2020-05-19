@@ -632,7 +632,6 @@ public class EvaluationService {
 	 * Write a method to return an int array of 3 random numbers between 1 - 100.
 	 * Generate the 3 random numbers (1 - 100 inclusive) using the java.util.Random class.
 	 */
-	
 	public int[] threeLuckyNumbers() {
 		int[] arr = new int[3];
 		int max = 100;
@@ -655,9 +654,11 @@ public class EvaluationService {
 	 * 
 	 * You must use the Math.random class to generate a random number between x and y.
 	 */
-	
 	public int guessingGame(int x, int y) {
-		return 0;
+		int min = x;
+		int max = y;
+		int random = min + (int)(Math.random() * ((max - min) + 1));
+		return random;
 	}
 
 }
