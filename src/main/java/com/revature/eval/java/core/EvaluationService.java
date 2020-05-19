@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 public class EvaluationService {
@@ -628,10 +629,20 @@ public class EvaluationService {
 	 * You work at a casino in Las Vegas.  Your job is to program a slot machine to
 	 * return 3 random numbers using the Math.random class.
 	 * 
-	 * Write a method to return an int array of 3 random numbers.
+	 * Write a method to return an int array of 3 random numbers between 1 - 100.
+	 * Generate the 3 random numbers (1 - 100 inclusive) using the java.util.Random class.
 	 */
 	
 	public int[] threeLuckyNumbers() {
-		return null;
+		int[] arr = new int[3];
+		int max = 100;
+		int min = 1;
+		Random rand = new Random();
+
+		for (int i=0; i<arr.length; i++) {
+			arr[i] = rand.nextInt((max - min) + 1) + min;
+		}
+		
+		return arr;
 	}
 }
