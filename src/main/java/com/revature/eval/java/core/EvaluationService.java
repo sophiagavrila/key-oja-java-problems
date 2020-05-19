@@ -645,4 +645,19 @@ public class EvaluationService {
 		
 		return arr;
 	}
+	
+	/*
+	 * 22. Easy Guessing Game
+	 * 
+	 * Create a program to generate a number between the given range:
+	 * int x = minimum
+	 * iny y = maximum (inclusive)
+	 * 
+	 * You must use the Math.random class to generate a random number between x and y.
+	 */
+	
+	public int guessingGame(int x, int y) {
+		return 0;
+	}
+
 }
